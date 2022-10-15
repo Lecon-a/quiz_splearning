@@ -1,124 +1,181 @@
 * {
-			margin: 0;
-		}
+	margin: 0;
+}
 
-		p {
-			margin: 0;
-			padding: 0;
-		}
+p {
+	margin: 0;
+	padding: 0;
+}
 
-		.container {
-			padding: 2em;
-			display: flex;
-			flex-direction: column;
-			color: #555;
-		}
+.container {
+	padding: 2em;
+	display: flex;
+	flex-direction: column;
+	color: #555;
+}
 
-		.question {
-			height: auto;
-			padding: 2em;
-			text-align: center;
-			background-color: lightgrey;
-			font-size: 14pt;
-			border-radius: 5px;
-		}
+.question {
+	height: auto;
+	padding: 2em;
+	text-align: center;
+	background-color: lightgrey;
+	font-size: 14pt;
+	border-radius: 5px;
+}
 
-		.group-options {
-			margin: 16px 0;
-			padding: 1em;
-			font-size: 12pt;
-		}
+.group-options {
+	margin: 16px 0;
+	padding: 1em;
+	font-size: 12pt;
+}
 
-		.numbering {
-			width: fit-content;
-			margin: 0 0 16px -2em;
-			padding: .55em .65em;
-			border-radius: 0 25px 25px 0;
-			background-color: #555;
-			color: #ddd;
-		}
+.numbering, .page {
+	width: fit-content;
+	margin: 0 0 16px -2em;
+	padding: .55em .65em;
+	border-radius: 0 25px 25px 0;
+	background-color: #555;
+	color: #ddd;
+}
 
-		.count {
-			padding: .25em .6em;
-			margin-left: 5px;
-			font-size: 14pt;
-			border-radius: 50%;
-			font-weight: bold;
-			background-color: lightgrey;
-			color: #555;
-		}
+.page {
+	border-radius: 25px 0 0 25px;
+	margin: 0 -2em 16px 0;
+	font-weight: bold;
+	font-size: 12pt;
+}
 
-		.group-button {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			padding: 2em;
-		}
+.count {
+	padding: .25em .6em;
+	margin-left: 5px;
+	font-size: 14pt;
+	border-radius: 50%;
+	font-weight: bold;
+	background-color: lightgrey;
+	color: #555;
+}
 
-		.group-control {
-			margin-bottom: 8px;
-			padding: .5em;
-		}
+.group-button {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 2em;
+}
 
-		.group-control:last-child {
-			margin-bottom: 0;
-		}
+.group-control {
+	margin-bottom: 8px;
+	padding: .5em;
+}
 
-		.options {
-			margin: 0 8px;
-		}
+.group-control:last-child {
+	margin-bottom: 0;
+}
 
-		.btn {
-			padding: 1em;
-			width: 100px;
-			outline: none;
-			border: none;
-			border-radius: 25px;
-			font-weight: bold;
-			box-shadow: 2px 2px 2px lightgrey;
-			border: 2px solid #ddd;
-			cursor: pointer;
-		}
+.options {
+	margin: 0 8px;
+}
 
-		.next {
-			border: 2px solid #444;
-			background-color: #555;
-			color: #eee;
-		}
+.btn {
+	padding: 1em;
+	width: 100px;
+	outline: none;
+	border: none;
+	border-radius: 25px;
+	font-weight: bold;
+	box-shadow: 2px 2px 2px lightgrey;
+	border: 2px solid #ddd;
+	cursor: pointer;
+}
 
-		.previous:hover {
-			background-color: #555;
-			color: #eee;
-		}
+.next {
+	border: 2px solid #444;
+	background-color: #555;
+	color: #eee;
+}
 
-		.next:hover {
-			background-color: #eee;
-			color: #555;
-		}
+.previous:hover {
+	background-color: #555;
+	color: #eee;
+}
 
-		footer {
-			width: 100%;
-			padding: 2em;
-			text-align: center;
-			position: fixed;
-			bottom: 0;
-			box-sizing: border-box;
-		}
+.next:hover {
+	background-color: #eee;
+	color: #555;
+}
 
-		header {
-			padding: 1.5em;
-			background-color: #555;
-			border-bottom: 1px solid #555;
-		}
+footer {
+	width: 100%;
+	padding: 2em;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	z-index: -1;
+	box-sizing: border-box;
+}
 
-		.brand {
-			font-family: cursive;
-			font-weight: bold;
-			font-size: 14pt;
-			color: darkblue;
-			padding: .15em 1em;
-			border-radius: 25px;
-			background-color: #ddd;
-			box-shadow: 2px 2px 2px #333;
-			border: 2px solid red;
-		}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5em;
+	background-color: #555;
+	border-bottom: 1px solid #555;
+}
+
+.brand {
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 14pt;
+	color: darkblue;
+	padding: .15em 1em;
+	border-radius: 25px;
+	background-color: #ddd;
+	box-shadow: 2px 2px 2px #333;
+	border: 2px solid red;
+}
+
+.errorBox {
+	position: relative;
+	align-items: center;
+	text-align: center;
+	padding: 1em;
+	border: 2px solid #f55;
+	color: #f00;
+	font-weight: bold;
+	font-size: 12pt;
+	margin: 2em 2em 0;
+	background-color: #faa;
+}
+
+/*.errorMsg {
+	border: 1px solid red;
+}*/
+
+.cancel {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.hide {
+	display: none;
+	transition: 2s;
+}
+
+.show {
+	display: block;
+}
+
+.track_number {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.time {
+	font-size: 12pt;
+	font-weight: bold;
+	color: #fff;
+}

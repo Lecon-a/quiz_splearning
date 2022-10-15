@@ -23,6 +23,10 @@ let size = answeredQuestions.questions.question_ids.length - 1;
 const buttons = document.querySelectorAll("button");
 const displayCount = document.querySelector(".count");
 const nextButton = document.querySelector(".next");
+const errorBox = document.querySelector(".errorBox");
+const errorMsg = document.querySelector(".errorMsg");
+const cancelButton = document.querySelector(".cancel");
+const q_number = document.querySelector(".page_number");
 // iterate through the button to detect which ever is clicked upon
 buttons.forEach(button => {
 	button.onclick = (e) => {
@@ -46,10 +50,15 @@ buttons.forEach(button => {
 				getQuestion("previous", question_id);
 				break;
 			default:
-				alert("You have not clicked on valid button.");
-			}
+				errorMsg.innerHTML = "You have not clicked on valid button.";
 		}
-	})
+	}
+})
+
+cancelButton.onclick = () => {
+	errorBox.classList.remove("show");
+	errorBox.classList.add("hide");
+}
 
 // numbering function
 function setQuestionNumber() {
@@ -75,7 +84,7 @@ function getQuestion(state = '', qID = null) {
 				renderQuestion(response);
 			})
 			.catch(error => {
-				alert("Server error for next question.")
+				errorMsg.innerHTML = "Server error for next question.";
 			});
 			break;
 
@@ -91,12 +100,12 @@ function getQuestion(state = '', qID = null) {
 				renderQuestion(response);
 			})
 			.catch(error => {
-				alert("Server error for previous question.")
+				errorMsg.innerHTML = "Server error for previous question.";
 			});
 			break;
 
 		default:
-			alert("State is not set.")
+			errorMsg.innerHTML = "State is not set.";
 	}
 }
 
@@ -117,13 +126,18 @@ function submit() {
 			getQuestion("next");
 		})
 		.catch(error => {
-			alert("Server error question not submitted.")
+			// alert()
+			if (errorBox.classList.contains("hide")) {
+				errorBox.classList.remove("hide");
+				errorBox.classList.add("show");
+			}
+			errorMsg.innerHTML = "Server error question not submitted.";
 	});
 }
 
 function numbering() {
 	let number = setQuestionNumber();
-	if (number == 10) {
+	if (number === 10) {
 		nextButton.innerHTML = "Submit All";
 		displayCount.style.backgroundColor = "red";
 		displayCount.style.color = "#ddd";
@@ -134,5 +148,6 @@ function numbering() {
 		return true;
 	}
 	displayCount.innerHTML = number < 10 ? number : 10;
+	q_number.innerHTML = number < 10 ? number : 10;
 	return false;
 }

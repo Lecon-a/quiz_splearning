@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta author="Sunday P. Afolabi">
 	<title>Quiz System</title>
 	<!-- Here goes the external css -->
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -12,10 +13,19 @@
 <body>
 	<header>
 		<span class="brand">IQ Test</span>
+		<span class="stop_watch">
+			<span>MM:SS</span><br>
+			<span class="time"><span class="minute">0 0</span> : <span class="seconds">0 0</span></span>
+		</span>
 	</header>
+	<!-- Error -->
+	<div class="errorBox hide">
+		<div class="errorMsg"></div>
+		<span class="cancel">&cross;</span>
+	</div>
+		
 	<!-- Here goes the container -->
 	<div class="container">
-		
 		<!-- Question pane -->
 		<p class="question">What is a noun?</p>
 
@@ -41,7 +51,10 @@
 		</div>
 
 		<!-- Display total question attempted -->
-		<div class="numbering">Total Question Seen <span class="count">1</span></div>
+		<div class="track_number">
+			<div class="numbering">Total Question Seen <span class="count">1</span></div>
+			<div class="page"><span class="page_number">0</span> / 10</div>
+		</div>		
 
 		<!-- buttons -->
 		<div class="group-button">
@@ -55,5 +68,6 @@
 
 	<!-- Here goes the script -->
 	<script type="text/javascript" src="process.js"></script>
+	<script type="text/javascript" src="timer.js"></script>
 </body>
 </html>
